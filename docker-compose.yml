@@ -1,0 +1,29 @@
+
+version: "2"
+services:
+  app:
+    image: busybox
+    container_name: app
+    depends_on:
+      - "rsyslog_server"
+      - "nginx"
+
+  rsyslog_server:
+    build: ./rsyslog
+    container_name: rsyslog_server
+    ports:
+      - "514/tcp:514/tcp"
+      - "514/udp:514/udp"
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://localhost:514"
+    depends_on:
+      - "rsyslog_server"
