@@ -29,3 +29,7 @@ services:
         syslog-address: "tcp://localhost:514"
     depends_on:
       - "rsyslog_server"
+    volumes:
+      - ./www:/usr/share/nginx/html
+
+
