@@ -13,8 +13,11 @@ To use the docker-compose.yml file, you will need to have done the following:
  - Windows 7 not supported!!!
  - Windows 10 https://download.docker.com/win/beta/InstallDocker.msi
  - Download and Install docker-compose v =>1.7.1
+
 2 Open a shell prompt and cd into the folder containing the docker-compose.yml.
+
 3 Pull docker images 'docker-compose pull'.
+
 4 Start project 'docker-compose up app'.
 
 Additional For access to logfiles you must got to directory "./log/" .  using the folowing command:
