@@ -23,9 +23,12 @@ To use the docker-compose.yml file, you will need to have done the following:
 Additional For access to logfiles you must got to directory "./log/" .  using the folowing command:
 tail -f *.log
 
-For access to rsyslog server container console you must enter following command:
+For access to rsyslog server container console you must enter following command:    
   docker-compose exec rsyslog_server bash
-For access to rsyslog agent container console you must enter following command:
+
+For access to rsyslog agent container console you must enter following command:    
   docker-compose exec rsyslog_agent bash
-For access to rsyslog agent container console you must enter following command:
+
+For access to rsyslog agent container console you must enter following command:    
   docker-compose exec nginx sh
+  
