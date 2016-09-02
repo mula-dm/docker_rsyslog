@@ -6,6 +6,7 @@ services:
     container_name: app
     depends_on:
       - "rsyslog_server"
+      - "rsyslog_agent"
       - "nginx"
 
   rsyslog_server:
@@ -16,6 +17,12 @@ services:
       - "514/udp:514/udp"
     volumes:
       - ./log:/var/log
+
+  rsyslog_agent:
+    build: ./rsyslog_agent
+    container_name: rsyslog_agent
+    depends_on:
+      - "rsyslog_server"
 
   nginx:
     image: nginx:alpine
