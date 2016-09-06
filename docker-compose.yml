@@ -25,17 +25,15 @@ services:
       - "rsyslog_server"
 
   nginx:
-    image: nginx:alpine
+    build: ./nginx
     container_name: nginx
     ports:
       - "80:80"
       - "443:443"
-    logging:
-      driver: syslog
-      options:
-        syslog-address: "tcp://localhost:514"
+    environment:
+      - RSYSLOG_AGENT=rsyslog_agent
     depends_on:
-      - "rsyslog_server"
+      - "rsyslog_agent"
     volumes:
       - ./www:/usr/share/nginx/html
 
